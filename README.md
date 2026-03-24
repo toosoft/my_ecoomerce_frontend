@@ -36,10 +36,6 @@ cd my_ecoomerce_frontend
 
 npm install
 
-NEXT_PUBLIC_API_URL=http://localhost:8888
-
 npm run dev
-
-http://localhost:3000
 
 
