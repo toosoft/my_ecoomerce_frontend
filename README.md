@@ -26,4 +26,20 @@ A modern, responsive eCommerce frontend built with **Next.js**, featuring produc
 
 ---
 
-## Project Structure
+##  Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/toosoft/my_ecoomerce_frontend.git
+cd my_ecoomerce_frontend
+
+npm install
+
+NEXT_PUBLIC_API_URL=http://localhost:8888
+
+npm run dev
+
+http://localhost:3000
+
+
