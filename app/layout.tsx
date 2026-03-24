@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { CartProvider } from "./context/cartcontext";
+import { AuthProvider } from "./context/authcontext";
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -19,15 +25,29 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`flex min-h-screen flex-col bg-white ${geistSans.variable} ${geistMono.variable}`}
       >
-        {children}
+
+      <AuthProvider>
+        <CartProvider>
+
+          <Navbar />
+
+          <main className="flex-grow container mx-auto px-4 py-8">
+            {children}
+          </main>
+
+          <Footer />
+
+        </CartProvider>
+      </AuthProvider>
+      
       </body>
     </html>
   );
