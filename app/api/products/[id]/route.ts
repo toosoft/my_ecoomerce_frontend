@@ -7,12 +7,15 @@ interface Params {
   id: string;
 }
 
-export async function GET(req: NextRequest, { params }: { params: Params }) {
+export async function GET(req: NextRequest, 
+  // { params }: { params: Params }
+  context: { params: Promise<{ id: string }> }
+) {
 
 
   try {
 
-    const { id } = await params;
+    const { id } = await context.params;
 
     const res = await fetch(`${API_URL}/api/v1/products/${id}`);
 
