@@ -1,3 +1,5 @@
+import { API_URL } from "@/lib/api";
+
 // app/api/cart/route.ts
 export async function GET(req: Request) {
 
@@ -5,7 +7,7 @@ export async function GET(req: Request) {
 
   console.log(authHeader);
 
-  const res = await fetch("http://localhost:8888/api/v1/carts/user-cart", {
+  const res = await fetch(`${API_URL}/api/v1/carts/user-cart`, {
     headers: {
       Authorization: authHeader || "",
     },
@@ -30,7 +32,7 @@ export async function POST(req: Request) {
 
     console.log(authHeader);
 
-    const res = await fetch("http://localhost:8888/api/v1/cartItems/items/add", {
+    const res = await fetch(`${API_URL}/api/v1/cartItems/items/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

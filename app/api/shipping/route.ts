@@ -1,11 +1,12 @@
 // app/api/shipping-addresses/route.ts
+import { API_URL } from '@/lib/api';
 import { NextResponse } from 'next/server';
 
 export async function GET(req: Request) {
   const authHeader = req.headers.get("authorization");
 
   try {
-    const res = await fetch("http://localhost:8888/api/v1/shipping-addresses", {
+    const res = await fetch(`${API_URL}/api/v1/shipping-addresses`, {
       headers: {
         Authorization: authHeader || "",
       },
@@ -27,7 +28,7 @@ export async function POST(req: Request) {
   const body = await req.json();
 
   try {
-    const res = await fetch("http://localhost:8888/api/v1/shipping-addresses", {
+    const res = await fetch(`${API_URL}/api/v1/shipping-addresses`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,7 +58,7 @@ export async function DELETE(
   const authHeader = req.headers.get("authorization");
 
   try {
-    const res = await fetch(`http://localhost:8888/api/v1/shipping-addresses/${params.id}`, {
+    const res = await fetch(`${API_URL}/api/v1/shipping-addresses/${params.id}`, {
       method: "DELETE",
       headers: {
         Authorization: authHeader || "",

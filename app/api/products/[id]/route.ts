@@ -1,5 +1,6 @@
 // export async function GET(req, { params }) {
 
+import { API_URL } from "@/lib/api";
 import { NextRequest, NextResponse } from "next/server";
 
 interface Params {
@@ -13,7 +14,7 @@ export async function GET(req: NextRequest, { params }: { params: Params }) {
 
     const { id } = await params;
 
-    const res = await fetch(`http://localhost:8888/api/v1/products/${id}`);
+    const res = await fetch(`${API_URL}/api/v1/products/${id}`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch product");

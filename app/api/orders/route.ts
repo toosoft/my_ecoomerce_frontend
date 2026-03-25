@@ -1,9 +1,11 @@
+import { API_URL } from "@/lib/api";
+
 export async function GET(req: Request) {
   const authHeader = req.headers.get("authorization");
   console.log(authHeader);
 
   try {
-    const res = await fetch("http://localhost:8888/api/v1/orders/user-orders", {
+    const res = await fetch(`${API_URL}/api/v1/orders/user-orders`, {
       headers: {
         Authorization: authHeader || "",
       },

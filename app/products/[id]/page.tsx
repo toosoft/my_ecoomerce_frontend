@@ -1,3 +1,5 @@
+import { API_URL } from "@/lib/api";
+
 type Image = {
   imageId: number;
   imageName: string;
@@ -24,7 +26,7 @@ export default async function ProductPage(
 
   const { id } = await params;
 
-  const res = await fetch(`http://localhost:3000/api/products/${id}`);
+  const res = await fetch(`/api/products/${id}`);
 
   const response = await res.json();
 
@@ -41,7 +43,7 @@ export default async function ProductPage(
           <img
             src={
               product.images?.[0]
-                ? `http://localhost:8888${product.images[0].downloadUrl}`
+                ? `${API_URL}/${product.images[0].downloadUrl}`
                 : "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
             }
             alt={product.name}

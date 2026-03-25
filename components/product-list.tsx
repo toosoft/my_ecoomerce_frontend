@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@/app/context/cartcontext";
+import { API_URL } from "@/lib/api";
 import Link from "next/link";
 
 type Image = {
@@ -47,7 +48,7 @@ export default function ProductList({ products }: ProductListProps) {
               <img
                 src={
                   product.images?.[0]
-                    ? `http://localhost:8888${product.images[0].downloadUrl}`
+                    ? `${API_URL}${product.images[0].downloadUrl}`
                     : "https://t4.ftcdn.net/jpg/06/57/37/01/360_F_657370150_pdNeG5pjI976ZasVbKN9VqH1rfoykdYU.jpg" //"https://images.unsplash.com/photo-1542291026-7eec264c27ff"
                 }
                 alt={product.name}

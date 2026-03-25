@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useAuth } from "../context/authcontext";
 import { useEffect, useState } from "react";
+import { API_URL } from "@/lib/api";
 
 type Image = {
   imageId: number;
@@ -182,7 +183,7 @@ export default function OrdersPage() {
                       <div className="flex items-center gap-4 w-full md:w-auto">
                         {item.product?.images?.[0] && (
                           <img
-                            src={`http://localhost:8888${item.product.images[0].downloadUrl}`}
+                            src={`${API_URL}${item.product.images[0].downloadUrl}`}
                             alt={item.product.name}
                             className="w-16 h-16 object-cover rounded"
                           />

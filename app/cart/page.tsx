@@ -4,6 +4,7 @@
 import Link from "next/link";
 import { useCart } from "../context/cartcontext";
 import { useEffect, useState } from "react";
+import { API_URL } from "@/lib/api";
 
 type Image = {
   imageId: number;
@@ -111,7 +112,7 @@ export default function CartPage() {
                   <img
                     src={
                       product.images?.[0]
-                        ? `http://localhost:8888${product.images[0].downloadUrl}`
+                        ? `${API_URL}${product.images[0].downloadUrl}`
                         : "https://images.unsplash.com/photo-1542291026-7eec264c27ff"
                     }
                     alt={product.name}

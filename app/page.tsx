@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Carousel } from "@/components/carousel";
 import ProductsPage from "./products/page";
+import HomeProducts from "@/components/home-products";
 // import { Carousel } from "@/components/carousel";
 
 export default function Home() {

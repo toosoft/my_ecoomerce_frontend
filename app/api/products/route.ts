@@ -1,7 +1,9 @@
+import { API_URL } from "@/lib/api";
+
 export async function GET() {
   try {
 
-    const res = await fetch("http://localhost:8888/api/v1/products/all");
+    const res = await fetch(`${API_URL}/api/v1/products/all`);
 
     
     if (!res.ok) {

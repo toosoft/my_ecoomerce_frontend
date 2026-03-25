@@ -1,3 +1,4 @@
+import { API_URL } from "@/lib/api";
 import { NextResponse } from "next/server";
 
 // ==========================
@@ -17,7 +18,7 @@ export async function GET(req: Request) {
 
     // 2. Call Spring Boot (user will be resolved from token)
     const res = await fetch(
-      "http://localhost:8888/api/v1/carts/user-cart",
+      `${API_URL}/api/v1/carts/user-cart`,
       {
         method: "GET",
         headers: {
@@ -74,7 +75,7 @@ export async function POST(req: Request) {
 
     // 3. Send to Spring Boot (user comes from token)
     const res = await fetch(
-      "http://localhost:8888/api/v1/orders/order",
+      `${API_URL}/api/v1/orders/order`,
       {
         method: "POST",
         headers: {
@@ -109,47 +110,3 @@ export async function POST(req: Request) {
     );
   }
 }
-
-
-// export async function GET() {
-//   try {
-//     const res = await fetch("http://localhost:8888/api/v1/carts/6/user-cart");
-
-//     if (!res.ok) {
-//       throw new Error("Failed to fetch cart");
-//     }
-
-//     const data = await res.json();
-
-//     return Response.json(data);
-
-//   } catch (error) {
-//     return Response.json(
-//       { error: "Failed to fetch checkout data" },
-//       { status: 500 }
-//     );
-//   }
-// }
-
-// // POST → checkout
-// export async function POST() {
-//   try {
-//     const res = await fetch(
-//       "http://localhost:8888/api/v1/orders/order?userId=6",
-//       {
-//         method: "POST",
-//       }
-//     );
-
-//     const data = await res.json();
-//     console.log(data);
-
-//     return Response.json(data);
-
-//   } catch (error) {
-//     return Response.json(
-//       { error: "Checkout failed" },
-//       { status: 500 }
-//     );
-//   }
-// }
