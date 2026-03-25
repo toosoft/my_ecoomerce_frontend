@@ -53,32 +53,31 @@ export async function POST(req: Request) {
 // import { NextResponse } from 'next/server';
 
 export async function DELETE(
-      req: NextRequest,
-      context: { params: Promise<{ id: string }> }
-    ) {
-      const authHeader = req.headers.get("authorization");
+    req: NextRequest,
+    context: { params: Promise<{ id: string }> }
+  ) {
+    const authHeader = req.headers.get("authorization");
 
-      const { id } = await context.params;
+    const { id } = await context.params;
 
-      try {
-        const res = await fetch(
-          `${API_URL}/api/v1/shipping-addresses/${id}`,
-          {
-            method: "DELETE",
-            headers: {
-              Authorization: authHeader || "",
-            },
-          }
-        );
+    try {
+      const res = await fetch(
+        `${API_URL}/api/v1/shipping-addresses/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: authHeader || "",
+          },
+        }
+      );
 
-        const data = await res.json();
+      const data = await res.json();
 
-        return NextResponse.json(data, { status: res.status });
-      } catch (error) {
-        return NextResponse.json(
-          { error: "Internal Server Error" },
-          { status: 500 }
-        );
-      }
+      return NextResponse.json(data, { status: res.status });
+    } catch (error) {
+      return NextResponse.json(
+        { error: "Internal Server Error" },
+        { status: 500 }
+      );
     }
 }
