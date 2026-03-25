@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Carousel } from "@/components/carousel";
+// import { Carousel } from "@/components/carousel";
 import ProductsPage from "./products/page";
 // import { Carousel } from "@/components/carousel";
 
