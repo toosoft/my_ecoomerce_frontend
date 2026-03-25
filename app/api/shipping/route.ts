@@ -1,6 +1,7 @@
 // app/api/shipping-addresses/route.ts
 import { API_URL } from '@/lib/api';
-import { NextResponse } from 'next/server';
+// import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: Request) {
   const authHeader = req.headers.get("authorization");
@@ -52,26 +53,32 @@ export async function POST(req: Request) {
 // import { NextResponse } from 'next/server';
 
 export async function DELETE(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
-  const authHeader = req.headers.get("authorization");
+      req: NextRequest,
+      context: { params: Promise<{ id: string }> }
+    ) {
+      const authHeader = req.headers.get("authorization");
 
-  try {
-    const res = await fetch(`${API_URL}/api/v1/shipping-addresses/${params.id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: authHeader || "",
-      },
-    });
+      const { id } = await context.params;
 
-    const data = await res.json();
-    return NextResponse.json(data, { status: res.status });
-  } catch (err) {
-    console.error("Failed to delete shipping address", err);
-    return NextResponse.json(
-      { error: "Failed to delete shipping address" },
-      { status: 500 }
-    );
-  }
+      try {
+        const res = await fetch(
+          `${API_URL}/api/v1/shipping-addresses/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: authHeader || "",
+            },
+          }
+        );
+
+        const data = await res.json();
+
+        return NextResponse.json(data, { status: res.status });
+      } catch (error) {
+        return NextResponse.json(
+          { error: "Internal Server Error" },
+          { status: 500 }
+        );
+      }
+    }
 }
