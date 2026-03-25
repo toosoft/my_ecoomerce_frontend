@@ -29,10 +29,14 @@ export const Footer = () => {
         <div>
           <h3 className="text-white font-semibold mb-4">Customer Service</h3>
           <ul className="space-y-2 text-sm">
-            <li><Link href="/contact">Contact Us</Link></li>
+            {/* <li><Link href="/contact">Contact Us</Link></li>
             <li><Link href="/shipping">Shipping Info</Link></li>
             <li><Link href="/returns">Returns</Link></li>
-            <li><Link href="/faq">FAQ</Link></li>
+            <li><Link href="/faq">FAQ</Link></li> */}
+            <li><Link href="">Contact Us</Link></li>
+            <li><Link href="">Shipping Info</Link></li>
+            <li><Link href="">Returns</Link></li>
+            <li><Link href="">FAQ</Link></li>
           </ul>
         </div>
 
