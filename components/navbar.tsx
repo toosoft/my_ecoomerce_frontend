@@ -30,7 +30,7 @@ export const Navbar = () => {
         {/* LEFT SIDE */}
         <div className="flex items-center space-x-8">
           <Link href="/" className="text-xl font-bold text-blue-600">
-            My Ecommerce
+            BuyCom
           </Link>
                       {/* <Link href="/products" className="hover:text-blue-600">Products</Link> */}
 

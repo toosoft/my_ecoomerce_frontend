@@ -122,7 +122,7 @@ export default function CheckoutPage() {
 
       alert("Order placed successfully!");
       // router.push("/");
-      window.location.href = window.location.origin + "/";
+      window.location.href = window.location.origin + "/orders";
 
 
     } catch (err: any) {

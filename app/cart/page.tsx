@@ -167,7 +167,13 @@ export default function CartPage() {
           </div>
 
           <div className="hidden md:flex space-x-6 text-gray-700">
-            <Link href="/checkout" className="hover:text-blue-600">
+            {/* <Link href="/checkout" className="hover:text-blue-600">
+              Checkout
+            </Link> */}
+            <Link
+              href="/checkout"
+              className="bg-blue-600 text-black px-4 py-2 rounded hover:bg-blue-700"
+            >
               Checkout
             </Link>
           </div>

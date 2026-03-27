@@ -1,9 +1,12 @@
+
 import { API_URL } from "@/lib/api";
 
 export async function GET() {
   try {
 
-    const res = await fetch(`${API_URL}/api/v1/products/all`);
+    const res = await fetch(`${API_URL}/api/v1/products/all`, {
+      next: { revalidate: 60 }  // ← Add this line
+    });
 
     
     if (!res.ok) {
