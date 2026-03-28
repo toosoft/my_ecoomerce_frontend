@@ -87,12 +87,7 @@ export default function CartPage() {
   return (
     <div className="container mx-auto px-4 py-10">
 
-      <Link
-        href="/checkout"
-        className="bg-blue-600 text-black px-4 py-2 rounded hover:bg-blue-700"
-      >
-        Checkout
-      </Link>
+
       <h1 className="text-3xl font-bold mb-8">Shopping Cart</h1>
 
       {cartProducts.length === 0 ? (
@@ -169,18 +164,17 @@ export default function CartPage() {
 
           {/* Total */}
           <div className="text-right text-xl font-bold">
-            Total: ${total}
-          </div>
+            Total: ${total} 
 
-          <div className="hidden md:flex space-x-6 text-gray-700">
-          
-            <Link
+             <Link
               href="/checkout"
               className="bg-blue-600 text-black px-4 py-2 rounded hover:bg-blue-700"
             >
               Checkout
             </Link>
           </div>
+
+        
 
         </div>
 
